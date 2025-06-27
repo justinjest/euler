@@ -1,8 +1,8 @@
 #![allow(dead_code)]
 
 mod utils;
-mod smallest_multiple;
+mod sum_square_difference;
 fn main() {
-    let ans = smallest_multiple::smallest_multiple_func(20);
+    let ans = sum_square_difference::difference(100);
     println!("{:?}", ans);
 }
