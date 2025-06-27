@@ -1,8 +1,8 @@
 
-mod three_and_five;
-use three_and_five::three_and_five;
+mod sieve_of_e;
+use sieve_of_e::*;
 
 fn main() {
-    let val = three_and_five(1000);
-    println!("{val}")
+    let val = sieve(10);
+    print_index(&val);
 }
