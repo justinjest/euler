@@ -1,8 +1,15 @@
 
-mod sieve_of_e;
-use sieve_of_e::*;
+mod fib;
+use fib::*;
 
 fn main() {
-    let val = sieve(10);
-    print_index(&val);
+    let ans = fib_sequence_max(4_000_000);
+    println!("{:?}", ans);
+    let mut val = 0;
+    for i in ans {
+        if i % 2 == 0 {
+            val += i
+        }
+    }
+    println!("{:?}", val);
 }
