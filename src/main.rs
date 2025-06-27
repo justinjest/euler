@@ -1,8 +1,8 @@
 #![allow(dead_code)]
 
 mod utils;
-mod palindrome;
+mod smallest_multiple;
 fn main() {
-    let ans = palindrome::largest_palindrome(999, 999);
+    let ans = smallest_multiple::smallest_multiple_func(20);
     println!("{:?}", ans);
 }
