@@ -1,15 +1,7 @@
-
-mod fib;
-use fib::*;
+mod utils;
+mod factor;
 
 fn main() {
-    let ans = fib_sequence_max(4_000_000);
+    let ans = factor::largest_prime(600851475143);
     println!("{:?}", ans);
-    let mut val = 0;
-    for i in ans {
-        if i % 2 == 0 {
-            val += i
-        }
-    }
-    println!("{:?}", val);
 }

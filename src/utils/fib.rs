@@ -11,7 +11,7 @@ pub fn fib_sequence(len: usize) -> Vec<usize> {
     }
     return res;
 }
-
+#[allow(dead_code)]
 pub fn fib_sequence_max(val: usize) -> Vec<usize> {
     let mut res = Vec::new();
     res.push(1);
