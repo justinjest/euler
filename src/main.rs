@@ -1,7 +1,8 @@
-mod utils;
-mod factor;
+#![allow(dead_code)]
 
+mod utils;
+mod palindrome;
 fn main() {
-    let ans = factor::largest_prime(600851475143);
+    let ans = palindrome::largest_palindrome(999, 999);
     println!("{:?}", ans);
 }
