@@ -13,7 +13,6 @@ pub fn three_and_five (num: usize) -> usize {
 #[cfg(test)]
 mod tests {
     use super::*;
-
     #[test]
     fn example() {
         let res = three_and_five(10);
