@@ -1,8 +1,8 @@
 #![allow(dead_code)]
 
 mod utils;
-mod special_pythagorean_tripple;
+mod summation_of_primes;
 fn main() {
-    let (a, b, c) = special_pythagorean_tripple::find_val(1000, 2);
-    println!("{:?}", (a*b*c));
+    let res = summation_of_primes::sum_of_primes(2_000_000);
+    println!("{:?}", res);
 }
