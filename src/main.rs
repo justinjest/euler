@@ -1,9 +1,8 @@
 #![allow(dead_code)]
 
 mod utils;
-mod largest_product_in_series;
+mod special_pythagorean_tripple;
 fn main() {
-    let filename = "./resources/largest_product_in_a_series.txt";
-    let ans = largest_product_in_series::largest_product(filename, 13);
-    println!("{ans}")
+    let (a, b, c) = special_pythagorean_tripple::find_val(12, 2);
+    println!("{:?}", (a, b, c));
 }
