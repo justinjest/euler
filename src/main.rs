@@ -1,8 +1,7 @@
 #![allow(dead_code)]
 
 mod utils;
-mod summation_of_primes;
+mod largest_product_in_grid;
 fn main() {
-    let res = summation_of_primes::sum_of_primes(2_000_000);
-    println!("{:?}", res);
+    let _ = largest_product_in_grid::largest_product("./resources/largest_product_in_a_grid.txt", 0);
 }
