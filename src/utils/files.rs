@@ -7,6 +7,7 @@ pub fn open(filename: &str) -> String {
     return contents;
 }
 
+// TODO: Add error checking for this, what happens when we can't open the file?
 pub fn open_array(filename: &str) -> Vec<Vec<String>>{
     let mut res = Vec::new();
     let contents = fs::read_to_string(filename)
