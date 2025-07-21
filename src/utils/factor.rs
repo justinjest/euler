@@ -1,12 +1,13 @@
 use crate::utils::sieve_of_e;
 
 pub fn factorization(num: usize) -> Vec<usize> {
-    println!("Starting factorization");
+    println!("Starting factorization {num}");
     let mut ans = Vec::new();
     for n in 1..num.isqrt() + 1{
         if num % n == 0 {
             println!("{:?}", n);
             ans.push(n);
+            ans.push(num/n);
         }
     }
     return ans;
