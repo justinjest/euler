@@ -1,9 +1,9 @@
 #![allow(dead_code)]
 
 mod utils;
-mod highly_divisable_numbers;
+mod collatz;
 
 fn main() {
-    let res = highly_divisable_numbers::find_highly_divisable_triangle_number(500);
+    let res = collatz::largest(1_000_000);
     print!("result: {res}\n");
 }

@@ -7,6 +7,15 @@ pub fn open(filename: &str) -> String {
     return contents;
 }
 
+pub fn open_nl_breaks(filename: &str) -> Vec<String> {
+    let tmp = open(filename);
+    let mut res = Vec::new();
+    for i in tmp.lines() {
+        print!("{i}\n");
+        res.push(i.to_string());
+    }
+    return res;
+}
 // TODO: Add error checking for this, what happens when we can't open the file?
 pub fn open_array(filename: &str) -> Vec<Vec<String>>{
     let mut res = Vec::new();
