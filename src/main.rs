@@ -1,9 +1,9 @@
 #![allow(dead_code)]
 
 mod utils;
-mod lattice_problem;
+mod collatz;
 
 fn main() {
-    let res = lattice_problem::lattice_path(20, 20);
+    let res = collatz::largest(1_000_000);
     print!("result: {res}\n");
 }
