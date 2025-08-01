@@ -1,0 +1,9 @@
+[package]
+name = "power_digit_sum"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+integer = "0.1.0"
+num-bigint = "0.4.6"
+num-integer = "0.1.46"
