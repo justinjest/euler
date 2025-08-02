@@ -1,0 +1,3 @@
+[workspace]
+resolver = "3"
+members = ["number_letter_count"]
