@@ -1,0 +1,130 @@
+use std::time::Instant;
+
+fn two_digit(number: usize) -> Option<usize> {
+    let mut first = number;
+    let second = number * 2;
+    first = first * 10_usize.pow(second.checked_ilog10().unwrap() + 1);
+    first = first + second;
+    if is_pandigital(first) {
+        return Some(first);
+    }
+    None
+}
+
+fn three_digit(number: usize) -> Option<usize> {
+    let mut first = number;
+    let mut second = number * 2;
+    let third = number * 3;
+    first = first
+        * 10_usize.pow(second.checked_ilog10().unwrap() + third.checked_ilog10().unwrap() + 2);
+    second = second * 10_usize.pow(third.checked_ilog10().unwrap() + 1);
+    first = first + second + third;
+    if is_pandigital(first) {
+        return Some(first);
+    }
+    None
+}
+
+fn four_digit(number: usize) -> Option<usize> {
+    let mut first = number;
+    let mut second = number * 2;
+    let second_digits = second.checked_ilog10().unwrap() + 3;
+    let mut third = number * 3;
+    let third_digits = third.checked_ilog10().unwrap() + 2;
+    let fourth = number * 4;
+    let fourth_digits = fourth.checked_ilog10().unwrap() + 1;
+    first = first * 10_usize.pow(second_digits + third_digits + fourth_digits);
+    second = second * 10_usize.pow(third_digits + fourth_digits);
+    third = third * 10_usize.pow(fourth_digits);
+    first = first + second + third + fourth;
+    if is_pandigital(first) {
+        return Some(first);
+    }
+    None
+}
+
+fn is_pandigital(number: usize) -> bool {
+    let digits = count_digits(number);
+    if digits[0] != 0 {
+        return false;
+    }
+    for i in &digits[1..] {
+        if *i != 1 {
+            return false;
+        }
+    }
+    true
+}
+
+fn count_digits(x: usize) -> Vec<usize> {
+    let mut output = vec![0; 10];
+    let mut t = x;
+    while t > 9 {
+        let digit = t % 10;
+        output[digit] += 1;
+        t = t / 10;
+    }
+    output[t] += 1;
+    output
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn is_pandigital_01() {
+        let check = is_pandigital(99719940);
+        let expect = false;
+        assert_eq!(check, expect);
+    }
+
+    #[test]
+    fn is_pandigital_02() {
+        let check = is_pandigital(192384576);
+        let expect = true;
+        assert_eq!(check, expect);
+    }
+    #[test]
+    fn three_digit_01() {
+        let check = three_digit(192);
+        let expect = Some(192384576);
+        assert_eq!(check, expect);
+    }
+}
+
+fn main() {
+    let now = Instant::now();
+    println!("Hello, world!");
+    let mut largest_digits = 918273645; // Given example
+    for x in 10..99 {
+        let ans = four_digit(x);
+        if ans != None {
+            let tmp = ans.unwrap();
+            if tmp > largest_digits {
+                largest_digits = tmp;
+            }
+        }
+    }
+    for x in 100..999 {
+        let ans = three_digit(x);
+        if ans != None {
+            let tmp = ans.unwrap();
+            if tmp > largest_digits {
+                largest_digits = tmp;
+            }
+        }
+    }
+    for x in 9182..9999 {
+        let ans = two_digit(x);
+        if ans != None {
+            let tmp = ans.unwrap();
+            if tmp > largest_digits {
+                largest_digits = tmp;
+            }
+        }
+    }
+    println!("{} is the largest number found", largest_digits);
+    let elapsed = now.elapsed();
+    println!("Took {} miliseconds", elapsed.as_millis());
+}
