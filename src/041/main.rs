@@ -1,4 +1,5 @@
 use std::time::Instant;
+
 struct PrimeArray {
     primes: Vec<bool>,
 }
